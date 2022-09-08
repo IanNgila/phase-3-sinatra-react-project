@@ -10,20 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_08_054531) do
+ActiveRecord::Schema.define(version: 2022_09_08_081143) do
 
-  create_table "programming_language", force: :cascade do |t|
+  create_table "programminglanguages", force: :cascade do |t|
     t.string "name"
     t.string "library"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "programmingprojects", force: :cascade do |t|
+    t.string "title"
+    t.string "programminglanguage_id"
+    t.integer "project_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.text "details"
     t.text "reference"
-    t.string "links"
+    t.string "video_links"
     t.string "source_code"
     t.integer "programming_language_id"
     t.datetime "created_at", precision: 6, null: false
